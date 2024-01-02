@@ -115,3 +115,10 @@ nexusStaging {
   username = System.getenv("NEXUS_USERNAME")
   password = System.getenv("NEXUS_PASSWORD")
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

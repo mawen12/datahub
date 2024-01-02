@@ -5,3 +5,10 @@ plugins {
 dependencies {
     implementation project(':entity-registry')
 }
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

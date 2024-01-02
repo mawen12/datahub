@@ -33,3 +33,10 @@ clean {
   project.delete('src/mainGeneratedAvroSchema/avro')
   project.delete('src/renamed/avro')
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

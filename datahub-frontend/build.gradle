@@ -139,3 +139,10 @@ createPlayBinaryTarDist.dependsOn 'stageDatahub-frontendDist'
 createPlayBinaryZipDist.dependsOn 'stageDatahub-frontendDist'
 createPlayBinaryTarDist.dependsOn 'stageMainDist'
 createPlayBinaryZipDist.dependsOn 'stageMainDist'
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

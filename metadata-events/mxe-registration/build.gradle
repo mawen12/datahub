@@ -41,3 +41,10 @@ processResources.dependsOn copyOriginalMXESchemas
 clean {
   project.delete("src/main/resources/avro")
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

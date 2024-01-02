@@ -41,3 +41,10 @@ dependencies {
   implementation externalDependency.logbackClassic
 
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

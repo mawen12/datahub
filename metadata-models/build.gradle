@@ -71,3 +71,10 @@ task cleanExtraDirs {
   delete "$projectDir/src/generatedJsonSchema"
 }
 clean.finalizedBy(cleanExtraDirs)
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

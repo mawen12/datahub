@@ -130,3 +130,10 @@ clean {
   delete 'dist'
 }
 clean.dependsOn cleanPythonCache
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

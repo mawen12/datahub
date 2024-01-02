@@ -33,3 +33,10 @@ test {
 clean {
   dependsOn ':metadata-service:plugin:src:test:sample-test-plugins:clean'
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

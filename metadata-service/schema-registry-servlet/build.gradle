@@ -37,3 +37,10 @@ dependencies {
     testImplementation externalDependency.jacksonDataBind
     testImplementation externalDependency.springBootStarterWeb
 }
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

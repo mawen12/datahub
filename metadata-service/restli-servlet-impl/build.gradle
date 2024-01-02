@@ -105,3 +105,10 @@ pegasus.main.idlOptions.addIdlItem([
 ])
 
 ext.apiProject = project(':metadata-service:restli-api')
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

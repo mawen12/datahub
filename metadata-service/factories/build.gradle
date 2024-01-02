@@ -67,3 +67,10 @@ configurations.all{
   exclude group: "jline", module:"jline"
   exclude group: 'software.amazon.awssdk', module: 'third-party-jackson-core'
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

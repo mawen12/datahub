@@ -10,3 +10,10 @@ dependencies {
   compileOnly externalDependency.lombok
   annotationProcessor externalDependency.lombok
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

@@ -31,3 +31,10 @@ idea {
 
 // Need to compile backing java parameterDefinitions with the data template.
 sourceSets.mainGeneratedDataTemplate.java.srcDirs('src/main/javaPegasus/')
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

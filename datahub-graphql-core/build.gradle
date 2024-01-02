@@ -64,3 +64,10 @@ tasks.withType(Checkstyle) {
 
 compileJava.dependsOn 'graphqlCodegen'
 sourceSets.main.java.srcDir "$projectDir/src/mainGeneratedGraphQL/java"
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

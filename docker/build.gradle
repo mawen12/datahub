@@ -125,3 +125,10 @@ task debugReload(type: Exec) {
     def cmd = ['docker compose -p datahub --profile debug'] + compose_args + ['restart'] + debug_reloadable
     commandLine 'bash', '-c', cmd.join(" ")
 }
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

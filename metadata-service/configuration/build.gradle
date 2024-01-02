@@ -18,3 +18,10 @@ dependencies {
 processResources.configure {
   finalizedBy printVersionDetails // always print version details
 }
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

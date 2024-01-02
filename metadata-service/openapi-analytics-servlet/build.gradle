@@ -63,3 +63,10 @@ task openApiGenerate(type: GenerateSwaggerCode) {
     ]
 }
 tasks.getByName("compileJava").dependsOn(openApiGenerate)
+
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

@@ -75,4 +75,9 @@ modelDeploy.dependsOn modelArtifact
 
 publish.dependsOn modelDeploy
 
+task wrapper(type: Wrapper){
+    gradleVersion = '8.0.2'
+}
 
+task prepareKotlinBuildScriptModel {
+}

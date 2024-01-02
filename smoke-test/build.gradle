@@ -39,3 +39,10 @@ task yarnInstall(type: YarnTask) {
   environment = ['NODE_OPTIONS': '--openssl-legacy-provider']
   args = ['install', '--cwd', "${project.rootDir}/smoke-test/tests/cypress"]
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

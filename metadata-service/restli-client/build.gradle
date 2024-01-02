@@ -21,3 +21,10 @@ dependencies {
   testImplementation externalDependency.mockito
   testImplementation externalDependency.testng
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}

@@ -228,3 +228,10 @@ idea {
     testSourceDirs += file('tests')
   }
 }
+
+task wrapper(type: Wrapper){
+  gradleVersion = '8.0.2'
+}
+
+task prepareKotlinBuildScriptModel {
+}
