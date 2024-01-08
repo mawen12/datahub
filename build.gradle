@@ -71,108 +71,93 @@ project.ext.spec = [
 ]
 
 project.ext.externalDependency = [
-    'akkaHttp': 'com.typesafe.akka:akka-http-core_2.12:10.2.10',
-    'antlr4Runtime': 'org.antlr:antlr4-runtime:4.7.2',
-    'antlr4': 'org.antlr:antlr4:4.7.2',
-    'assertJ': 'org.assertj:assertj-core:3.11.1',
-    'avro': 'org.apache.avro:avro:1.11.3',
-    'avroCompiler': 'org.apache.avro:avro-compiler:1.11.3',
+    // avro-serde includes dependencies for `kafka-avro-serializer` `kafka-schema-registry-client` and `avro`
+    // Amazon Relational Database Service
     'awsGlueSchemaRegistrySerde': 'software.amazon.glue:schema-registry-serde:1.1.17',
     'awsMskIamAuth': 'software.amazon.msk:aws-msk-iam-auth:1.1.9',
     'awsSecretsManagerJdbc': 'com.amazonaws.secretsmanager:aws-secretsmanager-jdbc:1.0.13',
     'awsPostgresIamAuth': 'software.amazon.jdbc:aws-advanced-jdbc-wrapper:1.0.2',
     'awsRds':'software.amazon.awssdk:rds:2.18.24',
-    'cacheApi': 'javax.cache:cache-api:1.1.0',
-    'commonsCli': 'commons-cli:commons-cli:1.5.0',
-    'commonsIo': 'commons-io:commons-io:2.4',
-    'commonsLang': 'commons-lang:commons-lang:2.6',
-    'commonsText': 'org.apache.commons:commons-text:1.10.0',
-    'commonsCollections': 'commons-collections:commons-collections:3.2.2',
-    'caffeine': 'com.github.ben-manes.caffeine:caffeine:3.1.8',
-    'datastaxOssNativeProtocol': 'com.datastax.oss:native-protocol:1.5.1',
-    'datastaxOssCore': 'com.datastax.oss:java-driver-core:4.14.1',
-    'datastaxOssQueryBuilder': 'com.datastax.oss:java-driver-query-builder:4.14.1',
-    'dgraph4j' : 'io.dgraph:dgraph4j:21.12.0',
-    'dropwizardMetricsCore': 'io.dropwizard.metrics:metrics-core:4.2.3',
-    'dropwizardMetricsJmx': 'io.dropwizard.metrics:metrics-jmx:4.2.3',
-    'ebean': 'io.ebean:ebean:' + ebeanVersion,
-    'ebeanAgent': 'io.ebean:ebean-agent:' + ebeanVersion,
-    'ebeanDdl': 'io.ebean:ebean-ddl-generator:' + ebeanVersion,
+
+    // opensearch
     'elasticSearchRest': 'org.opensearch.client:opensearch-rest-high-level-client:' + elasticsearchVersion,
     'elasticSearchJava': 'org.opensearch.client:opensearch-java:2.6.0',
-    'findbugsAnnotations': 'com.google.code.findbugs:annotations:3.0.1',
-    'graphqlJava': 'com.graphql-java:graphql-java:19.5',
-    'graphqlJavaScalars': 'com.graphql-java:graphql-java-extended-scalars:19.1',
-    'gson': 'com.google.code.gson:gson:2.8.9',
-    'guice': 'com.google.inject:guice:4.2.3',
-    'guava': 'com.google.guava:guava:32.1.2-jre',
+
+    // mysql
+    'mysqlConnector': 'mysql:mysql-connector-java:8.0.20',
+
+    // mariadb
+    'mariadbConnector': 'org.mariadb.jdbc:mariadb-java-client:2.6.0',
+
+    // postgresql
+    'postgresql': 'org.postgresql:postgresql:42.3.8',
+
+    // h2
     'h2': 'com.h2database:h2:2.2.224',
+
+    // apache hadoop
     'hadoopCommon':'org.apache.hadoop:hadoop-common:2.7.2',
     'hadoopMapreduceClient':'org.apache.hadoop:hadoop-mapreduce-client-core:2.7.2',
     "hadoopClient": "org.apache.hadoop:hadoop-client:$hadoop3Version",
     "hadoopCommon3":"org.apache.hadoop:hadoop-common:$hadoop3Version",
-    'hazelcast':"com.hazelcast:hazelcast:$hazelcastVersion",
-    'hazelcastSpring':"com.hazelcast:hazelcast-spring:$hazelcastVersion",
-    'hazelcastTest':"com.hazelcast:hazelcast:$hazelcastVersion:tests",
-    'hibernateCore': 'org.hibernate:hibernate-core:5.2.16.Final',
-    'httpClient': 'org.apache.httpcomponents:httpclient:4.5.9',
-    'httpAsyncClient': 'org.apache.httpcomponents:httpasyncclient:4.1.5',
-    'iStackCommons': 'com.sun.istack:istack-commons-runtime:4.0.1',
-    'jacksonJDK8': "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion",
-    'jacksonDataPropertyFormat': "com.fasterxml.jackson.dataformat:jackson-dataformat-properties:$jacksonVersion",
-    'jacksonCore': "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
-    'jacksonDataBind': "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
-    'jacksonDataFormatYaml': "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion",
-    'woodstoxCore': 'com.fasterxml.woodstox:woodstox-core:6.4.0',
-    'javatuples': 'org.javatuples:javatuples:1.2',
-    'javaxInject' : 'javax.inject:javax.inject:1',
-    'javaxValidation' : 'javax.validation:validation-api:2.0.1.Final',
-    'jerseyCore': 'org.glassfish.jersey.core:jersey-client:2.25.1',
-    'jerseyGuava': 'org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1',
-    'jettyJaas': "org.eclipse.jetty:jetty-jaas:$jettyVersion",
-    'jettyClient': "org.eclipse.jetty:jetty-client:$jettyVersion",
-    'jettison': 'org.codehaus.jettison:jettison:1.5.4',
-    'jgrapht': 'org.jgrapht:jgrapht-core:1.5.1',
-    'jna': 'net.java.dev.jna:jna:5.12.1',
-    'jsonPatch': 'com.github.java-json-tools:json-patch:1.13',
-    'jsonSimple': 'com.googlecode.json-simple:json-simple:1.1.1',
-    'jsonSmart': 'net.minidev:json-smart:2.4.9',
-    'json': 'org.json:json:20231013',
-    'junit': 'junit:junit:4.13.2',
-    'junitJupiterApi': "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion",
-    'junitJupiterParams': "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion",
-    'junitJupiterEngine': "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion",
-    // avro-serde includes dependencies for `kafka-avro-serializer` `kafka-schema-registry-client` and `avro`
+    'parquetHadoop': 'org.apache.parquet:parquet-hadoop:1.13.1',
+
+    // apache spark
+    'sparkSql' : 'org.apache.spark:spark-sql_2.12:3.0.3',
+    'sparkHive' : 'org.apache.spark:spark-hive_2.12:3.0.3',
+
+    // apache zookeeper
+    'zookeeper': 'org.apache.zookeeper:zookeeper:3.7.2',
+
+    // apache kafka
     'kafkaAvroSerde': 'io.confluent:kafka-streams-avro-serde:5.5.1',
     'kafkaAvroSerializer': 'io.confluent:kafka-avro-serializer:5.1.4',
     'kafkaClients': "org.apache.kafka:kafka-clients:$kafkaVersion",
-    'snappy': 'org.xerial.snappy:snappy-java:1.1.10.4',
-    'logbackClassic': "ch.qos.logback:logback-classic:$logbackClassic",
-    'slf4jApi': "org.slf4j:slf4j-api:$slf4jVersion",
-    'log4jCore': "org.apache.logging.log4j:log4j-core:$log4jVersion",
-    'log4jApi': "org.apache.logging.log4j:log4j-api:$log4jVersion",
-    'log4j12Api': "org.slf4j:log4j-over-slf4j:$slf4jVersion",
-    'log4j2Api': "org.apache.logging.log4j:log4j-to-slf4j:$log4jVersion",
-    'lombok': 'org.projectlombok:lombok:1.18.30',
-    'mariadbConnector': 'org.mariadb.jdbc:mariadb-java-client:2.6.0',
-    'mavenArtifact': "org.apache.maven:maven-artifact:$mavenVersion",
-    'mixpanel': 'com.mixpanel:mixpanel-java:1.4.4',
-    'mockito': 'org.mockito:mockito-core:4.11.0',
-    'mockitoInline': 'org.mockito:mockito-inline:4.11.0',
-    'mockServer': 'org.mock-server:mockserver-netty:5.11.2',
-    'mockServerClient': 'org.mock-server:mockserver-client-java:5.11.2',
-    'mysqlConnector': 'mysql:mysql-connector-java:8.0.20',
+
+    // neo4j
     'neo4jHarness': 'org.neo4j.test:neo4j-harness:' + neo4jTestVersion,
     'neo4jJavaDriver': 'org.neo4j.driver:neo4j-java-driver:' + neo4jVersion,
     'neo4jTestJavaDriver': 'org.neo4j.driver:neo4j-java-driver:' + neo4jTestVersion,
     'neo4jApocCore': 'org.neo4j.procedure:apoc-core:' + neo4jApocVersion,
     'neo4jApocCommon': 'org.neo4j.procedure:apoc-common:' + neo4jApocVersion,
+
+    // region observe & analytics
+    // telemetry
     'opentelemetryApi': 'io.opentelemetry:opentelemetry-api:' + openTelemetryVersion,
     'opentelemetryAnnotations': 'io.opentelemetry:opentelemetry-extension-annotations:' + openTelemetryVersion,
+    // trace
     'opentracingJdbc':'io.opentracing.contrib:opentracing-jdbc:0.2.15',
-    'parquet': 'org.apache.parquet:parquet-avro:1.12.3',
-    'parquetHadoop': 'org.apache.parquet:parquet-hadoop:1.13.1',
-    'picocli': 'info.picocli:picocli:4.5.0',
+    // mixpanel
+    'mixpanel': 'com.mixpanel:mixpanel-java:1.4.4',
+    // metrics
+    'dropwizardMetricsCore': 'io.dropwizard.metrics:metrics-core:4.2.3',
+    'dropwizardMetricsJmx': 'io.dropwizard.metrics:metrics-jmx:4.2.3',
+    // endregion
+
+    // region engine
+    // jetty
+    'jettyJaas': "org.eclipse.jetty:jetty-jaas:$jettyVersion",
+    'jettyClient': "org.eclipse.jetty:jetty-client:$jettyVersion",
+    // endregion
+
+    // region framework
+    // spring
+    'springBeans': "org.springframework:spring-beans:$springVersion",
+    'springContext': "org.springframework:spring-context:$springVersion",
+    'springCore': "org.springframework:spring-core:$springVersion",
+    'springJdbc': "org.springframework:spring-jdbc:$springVersion",
+    'springWeb': "org.springframework:spring-web:$springVersion",
+    'springWebMVC': "org.springframework:spring-webmvc:$springVersion",
+    'springKafka': 'org.springframework.kafka:spring-kafka:2.9.13',
+    // spring boot
+    'springBoot': "org.springframework.boot:spring-boot:$springBootVersion",
+    'springBootAutoconfigure': "org.springframework.boot:spring-boot-autoconfigure:$springBootVersion",
+    'springBootStarterWeb': "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+    'springBootStarterJetty': "org.springframework.boot:spring-boot-starter-jetty:$springBootVersion",
+    'springBootStarterCache': "org.springframework.boot:spring-boot-starter-cache:$springBootVersion",
+    'springBootStarterValidation': "org.springframework.boot:spring-boot-starter-validation:$springBootVersion",
+    'springActuator': "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion",
+    // play https://www.playframework.com/
     'playCache': "com.typesafe.play:play-cache_2.12:$playVersion",
     'playCaffeineCache': "com.typesafe.play:play-caffeine-cache_2.12:$playVersion",
     'playWs': 'com.typesafe.play:play-ahc-ws-standalone_2.12:2.1.10',
@@ -181,41 +166,171 @@ project.ext.externalDependency = [
     'playJavaJdbc': "com.typesafe.play:play-java-jdbc_2.12:$playVersion",
     'playAkkaHttpServer': "com.typesafe.play:play-akka-http-server_2.12:$playVersion",
     'playServer': "com.typesafe.play:play-server_2.12:$playVersion",
-    'playTest': "com.typesafe.play:play-test_2.12:$playVersion",
     'playFilters': "com.typesafe.play:filters-helpers_2.12:$playVersion",
-    'pac4j': 'org.pac4j:pac4j-oidc:4.5.7',
-    'playPac4j': 'org.pac4j:play-pac4j_2.12:9.0.2',
-    'postgresql': 'org.postgresql:postgresql:42.3.8',
-    'protobuf': 'com.google.protobuf:protobuf-java:3.19.6',
-    'grpcProtobuf': 'io.grpc:grpc-protobuf:1.53.0',
+    // akka https://akka.io/
+    'akkaHttp': 'com.typesafe.akka:akka-http-core_2.12:10.2.10',
+    // ebean orm https://ebean.io/
+    'ebean': 'io.ebean:ebean:' + ebeanVersion,
+    'ebeanAgent': 'io.ebean:ebean-agent:' + ebeanVersion,
+    'ebeanDdl': 'io.ebean:ebean-ddl-generator:' + ebeanVersion,
+    // hibernate
+    'hibernateCore': 'org.hibernate:hibernate-core:5.2.16.Final',
+    // endregion
+
+    // region cache
+    // hazelcast
+    'hazelcast':"com.hazelcast:hazelcast:$hazelcastVersion",
+    'hazelcastSpring':"com.hazelcast:hazelcast-spring:$hazelcastVersion",
+    'hazelcastTest':"com.hazelcast:hazelcast:$hazelcastVersion:tests",
+    // caffeine
+    'caffeine': 'com.github.ben-manes.caffeine:caffeine:3.1.8',
+    // endregion
+
+    // region OSS
+    'datastaxOssNativeProtocol': 'com.datastax.oss:native-protocol:1.5.1',
+    'datastaxOssCore': 'com.datastax.oss:java-driver-core:4.14.1',
+    'datastaxOssQueryBuilder': 'com.datastax.oss:java-driver-query-builder:4.14.1',
+    // endregion
+
+    // region commons tool
+    // apache commons
+    'common': 'commons-io:commons-io:2.7',
+    'commonsCli': 'commons-cli:commons-cli:1.5.0',
+    'commonsIo': 'commons-io:commons-io:2.4',
+    'commonsLang': 'commons-lang:commons-lang:2.6',
+    'commonsText': 'org.apache.commons:commons-text:1.10.0',
+    'commonsCollections': 'commons-collections:commons-collections:3.2.2',
+    'httpClient': 'org.apache.httpcomponents:httpclient:4.5.9',
+    'httpAsyncClient': 'org.apache.httpcomponents:httpasyncclient:4.1.5',
     'rangerCommons': 'org.apache.ranger:ranger-plugins-common:2.3.0',
+    // google
+    'guava': 'com.google.guava:guava:32.1.2-jre',
+    'guice': 'com.google.inject:guice:4.2.3',
+    'findbugsAnnotations': 'com.google.code.findbugs:annotations:3.0.1',
+    // lombok
+    'lombok': 'org.projectlombok:lombok:1.18.30',
+    // tuples
+    'javatuples': 'org.javatuples:javatuples:1.2',
+    // readline https://github.com/jline/jline1
+    'jline':'jline:jline:1.4.1',
+    // Java runtime metadata analysis https://github.com/ronmamo/reflections
     'reflections': 'org.reflections:reflections:0.9.9',
-    'resilience4j': 'io.github.resilience4j:resilience4j-retry:1.7.1',
-    'rythmEngine': 'org.rythmengine:rythm-engine:1.3.0',
-    'servletApi': 'javax.servlet:javax.servlet-api:3.1.0',
-    'shiroCore': 'org.apache.shiro:shiro-core:1.11.0',
+    // istack
+    'iStackCommons': 'com.sun.istack:istack-commons-runtime:4.0.1',
+    // ANTLR Lab
+    'antlr4Runtime': 'org.antlr:antlr4-runtime:4.7.2',
+    'antlr4': 'org.antlr:antlr4:4.7.2',
+    // endregion
+
+    // region data serialization
+    // google protobuf
+    'protobuf': 'com.google.protobuf:protobuf-java:3.19.6',
+    'grpcProtobuf': 'io.grpc:grpc-protobuf:1.53.0', // grpc
+    'wire': 'com.squareup.wire:wire-compiler:3.7.1', // Android、Kotlin、Swift、Java
+
+    // avro
+    'avro': 'org.apache.avro:avro:1.11.3',
+    'avroCompiler': 'org.apache.avro:avro-compiler:1.11.3',
+    'parquet': 'org.apache.parquet:parquet-avro:1.12.3',
+    // endregion
+
+    // region file format
+    // yaml
     'snakeYaml': 'org.yaml:snakeyaml:2.0',
-    'sparkSql' : 'org.apache.spark:spark-sql_2.12:3.0.3',
-    'sparkHive' : 'org.apache.spark:spark-hive_2.12:3.0.3',
-    'springBeans': "org.springframework:spring-beans:$springVersion",
-    'springContext': "org.springframework:spring-context:$springVersion",
-    'springCore': "org.springframework:spring-core:$springVersion",
-    'springDocUI': 'org.springdoc:springdoc-openapi-ui:1.6.14',
-    'springJdbc': "org.springframework:spring-jdbc:$springVersion",
-    'springWeb': "org.springframework:spring-web:$springVersion",
-    'springWebMVC': "org.springframework:spring-webmvc:$springVersion",
-    'springBootTest': "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
-    'springBoot': "org.springframework.boot:spring-boot:$springBootVersion",
-    'springBootAutoconfigure': "org.springframework.boot:spring-boot-autoconfigure:$springBootVersion",
-    'springBootStarterWeb': "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
-    'springBootStarterJetty': "org.springframework.boot:spring-boot-starter-jetty:$springBootVersion",
-    'springBootStarterCache': "org.springframework.boot:spring-boot-starter-cache:$springBootVersion",
-    'springBootStarterValidation': "org.springframework.boot:spring-boot-starter-validation:$springBootVersion",
-    'springKafka': 'org.springframework.kafka:spring-kafka:2.9.13',
-    'springActuator': "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion",
+    'charle':  'com.charleskorn.kaml:kaml:0.53.0', // kotlin yaml
+    // json
+    'jacksonJDK8': "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$jacksonVersion",
+    'jacksonDataPropertyFormat': "com.fasterxml.jackson.dataformat:jackson-dataformat-properties:$jacksonVersion",
+    'jacksonCore': "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+    'jacksonDataBind': "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+    'jacksonDataFormatYaml': "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion",
+    'gson': 'com.google.code.gson:gson:2.8.9', // gson
+    'jsonPatch': 'com.github.java-json-tools:json-patch:1.13',
+    'jsonSimple': 'com.googlecode.json-simple:json-simple:1.1.1',
+    'jsonSmart': 'net.minidev:json-smart:2.4.9',
+    'json': 'org.json:json:20231013', // json
+    // xml
+    'woodstoxCore': 'com.fasterxml.woodstox:woodstox-core:6.4.0',
+    'jettison': 'org.codehaus.jettison:jettison:1.5.4',
+    // endregion
+
+    // region Web Service
+    'jerseyCore': 'org.glassfish.jersey.core:jersey-client:2.25.1',
+    'jerseyGuava': 'org.glassfish.jersey.bundles.repackaged:jersey-guava:2.25.1',
+    // endregion
+
+    // compressor/decompressor
+    'snappy': 'org.xerial.snappy:snappy-java:1.1.10.4',
+
+    // command line
+    'picocli': 'info.picocli:picocli:4.5.0',
+
+    // template engine
+    'rythmEngine': 'org.rythmengine:rythm-engine:1.3.0',
+
+    // fault tolerance
+    'resilience4j': 'io.github.resilience4j:resilience4j-retry:1.7.1',
+
+    // region security
+    // auth
+    'shiroCore': 'org.apache.shiro:shiro-core:1.11.0',
+    // play
+    'playPac4j': 'org.pac4j:play-pac4j_2.12:9.0.2',
+    'pac4j': 'org.pac4j:pac4j-oidc:4.5.7', // login
+    // endregion
+
+    // maven
+    'mavenArtifact': "org.apache.maven:maven-artifact:$mavenVersion",
+
+    // kotlin
+    'jetbrains':' org.jetbrains.kotlin:kotlin-stdlib:1.6.0',
+
+    // graphql
+    'graphqlJava': 'com.graphql-java:graphql-java:19.5',
+    'graphqlJavaScalars': 'com.graphql-java:graphql-java-extended-scalars:19.1',
+    'dgraph4j' : 'io.dgraph:dgraph4j:21.12.0',
+
+    // graph
+    'jgrapht': 'org.jgrapht:jgrapht-core:1.5.1',
+
+    // config https://github.com/lightbend/config
+    'typesafeConfig':'com.typesafe:config:1.4.1',
+
+    // javax
+    'annotationApi': 'javax.annotation:javax.annotation-api:1.3.2',
+    'cacheApi': 'javax.cache:cache-api:1.1.0',
+    'javaxInject' : 'javax.inject:javax.inject:1',
+    'javaxValidation' : 'javax.validation:validation-api:2.0.1.Final',
+    'servletApi': 'javax.servlet:javax.servlet-api:3.1.0',
+
+    // java native
+    'jna': 'net.java.dev.jna:jna:5.12.1',
+
+    // swagger
     'swaggerAnnotations': 'io.swagger.core.v3:swagger-annotations:2.2.15',
     'swaggerCli': 'io.swagger.codegen.v3:swagger-codegen-cli:3.0.46',
+    'springDocUI': 'org.springdoc:springdoc-openapi-ui:1.6.14',
+
+    // region log
+    // logback
+    'logbackClassic': "ch.qos.logback:logback-classic:$logbackClassic",
+    // slf4j
+    'slf4jApi': "org.slf4j:slf4j-api:$slf4jVersion",
+    // log4j
+    'log4jCore': "org.apache.logging.log4j:log4j-core:$log4jVersion",
+    'log4jApi': "org.apache.logging.log4j:log4j-api:$log4jVersion",
+    'log4j12Api': "org.slf4j:log4j-over-slf4j:$slf4jVersion",
+    'log4j2Api': "org.apache.logging.log4j:log4j-to-slf4j:$log4jVersion",
+    // endregion
+
+    // region test
+    // spring boot
+    'springBootTest': "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
+    // play
+    'playTest': "com.typesafe.play:play-test_2.12:$playVersion",
+    // testng
     'testng': 'org.testng:testng:7.8.0',
+    // container
     'testContainers': 'org.testcontainers:testcontainers:' + testContainersVersion,
     'testContainersJunit': 'org.testcontainers:junit-jupiter:' + testContainersVersion,
     'testContainersPostgresql':'org.testcontainers:postgresql:' + testContainersVersion,
@@ -223,15 +338,20 @@ project.ext.externalDependency = [
     'testContainersCassandra': 'org.testcontainers:cassandra:' + testContainersVersion,
     'testContainersKafka': 'org.testcontainers:kafka:' + testContainersVersion,
     'testContainersOpenSearch': 'org.opensearch:opensearch-testcontainers:2.0.0',
-    'typesafeConfig':'com.typesafe:config:1.4.1',
+    // junit
+    'junit': 'junit:junit:4.13.2',
+    'junitJupiterApi': "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion",
+    'junitJupiterParams': "org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion",
+    'junitJupiterEngine': "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion",
+    // mock
+    'mockito': 'org.mockito:mockito-core:4.11.0',
+    'mockitoInline': 'org.mockito:mockito-inline:4.11.0',
+    'mockServer': 'org.mock-server:mockserver-netty:5.11.2',
+    'mockServerClient': 'org.mock-server:mockserver-client-java:5.11.2',
     'wiremock':'com.github.tomakehurst:wiremock:2.10.0',
-    'zookeeper': 'org.apache.zookeeper:zookeeper:3.7.2',
-    'wire': 'com.squareup.wire:wire-compiler:3.7.1',
-    'charle':  'com.charleskorn.kaml:kaml:0.53.0',
-    'common': 'commons-io:commons-io:2.7',
-    'jline':'jline:jline:1.4.1',
-    'jetbrains':' org.jetbrains.kotlin:kotlin-stdlib:1.6.0',
-    'annotationApi': 'javax.annotation:javax.annotation-api:1.3.2'
+    // commons
+    'assertJ': 'org.assertj:assertj-core:3.11.1',
+    // endregion
 ]
 
 allprojects {
