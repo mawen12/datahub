@@ -24,7 +24,8 @@ ENV LD_LIBRARY_PATH="/lib:/lib64"
 
 FROM base as prod-install
 
-COPY ./datahub-frontend/build/distributions/datahub-frontend-v0.12.2-SNAPSHOT.zip /datahub-frontend.zip
+#COPY ./datahub-frontend/build/distributions/datahub-frontend-v0.12.2-SNAPSHOT.zip /datahub-frontend.zip
+COPY ./datahub-frontend.zip /
 RUN unzip datahub-frontend.zip -d /datahub-frontend \
    && mv /datahub-frontend/main/* /datahub-frontend \
    && rmdir /datahub-frontend/main \
